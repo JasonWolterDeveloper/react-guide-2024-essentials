@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { EXAMPLES } from '../data';
+import Tabs from './Tabs';
 import TabButton from './TabButton';
 import Section from './Section';
 
@@ -25,33 +26,38 @@ export default function Examples () {
 
     return (
       <Section title="Examples" id="examples">
-        <menu>
-          <TabButton
-            onSelect={() => handleSelect("components")}
-            isSelected={selectedTopic === "components"}
-          >
-            Components
-          </TabButton>
-          <TabButton
-            onSelect={() => handleSelect("jsx")}
-            isSelected={selectedTopic === "jsx"}
-          >
-            JSX
-          </TabButton>
-          <TabButton
-            onSelect={() => handleSelect("props")}
-            isSelected={selectedTopic === "props"}
-          >
-            Props
-          </TabButton>
-          <TabButton
-            onSelect={() => handleSelect("state")}
-            isSelected={selectedTopic === "state"}
-          >
-            State
-          </TabButton>
-        </menu>
-        {tabContent}
+        <Tabs
+          buttons={
+            <>
+              <TabButton
+                onSelect={() => handleSelect("components")}
+                isSelected={selectedTopic === "components"}
+              >
+                Components
+              </TabButton>
+              <TabButton
+                onSelect={() => handleSelect("jsx")}
+                isSelected={selectedTopic === "jsx"}
+              >
+                JSX
+              </TabButton>
+              <TabButton
+                onSelect={() => handleSelect("props")}
+                isSelected={selectedTopic === "props"}
+              >
+                Props
+              </TabButton>
+              <TabButton
+                onSelect={() => handleSelect("state")}
+                isSelected={selectedTopic === "state"}
+              >
+                State
+              </TabButton>
+            </>
+          }
+        >
+          {tabContent}
+        </Tabs>
       </Section>
     );
 }
